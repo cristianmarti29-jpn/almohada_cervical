@@ -1,0 +1,468 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Almohada Cervical Ergonómica | Duerme sin dolor</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,500;9..144,600&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --night: #1B2A3A;
+    --night-2: #23384D;
+    --sage: #8FA894;
+    --sage-deep: #5F7E68;
+    --cream: #FAF8F4;
+    --coral: #E8785A;
+    --coral-deep: #CF5D3F;
+    --ink: #14202B;
+    --line: rgba(255,255,255,0.12);
+    --radius: 18px;
+  }
+  *{box-sizing:border-box; margin:0; padding:0;}
+  html{scroll-behavior:smooth;}
+  body{
+    font-family:'Inter', sans-serif;
+    background:var(--cream);
+    color:var(--ink);
+    line-height:1.5;
+    -webkit-font-smoothing:antialiased;
+  }
+  h1,h2,h3{font-family:'Fraunces', serif; font-weight:600; letter-spacing:-0.01em;}
+  img{max-width:100%; display:block;}
+  a{color:inherit;}
+  .wrap{max-width:1120px; margin:0 auto; padding:0 24px;}
+
+  /* Skip / focus */
+  a:focus-visible, button:focus-visible, input:focus-visible{
+    outline:3px solid var(--coral); outline-offset:2px;
+  }
+
+  @media (prefers-reduced-motion: reduce){
+    *{animation-duration:0.001ms !important; animation-iteration-count:1 !important; transition-duration:0.001ms !important;}
+  }
+
+  /* ---------- NAV ---------- */
+  .nav{
+    position:sticky; top:0; z-index:50;
+    background:rgba(27,42,58,0.92);
+    backdrop-filter:blur(8px);
+    border-bottom:1px solid var(--line);
+  }
+  .nav-inner{
+    max-width:1120px; margin:0 auto; padding:16px 24px;
+    display:flex; align-items:center; justify-content:space-between;
+  }
+  .brand{color:var(--cream); font-family:'Fraunces',serif; font-size:1.15rem; font-weight:600; letter-spacing:0.01em;}
+  .nav-cta{
+    background:var(--coral); color:white; border:none;
+    padding:10px 20px; border-radius:999px; font-weight:600; font-size:0.9rem;
+    cursor:pointer; transition:transform 0.15s ease, background 0.15s ease;
+  }
+  .nav-cta:hover{background:var(--coral-deep); transform:translateY(-1px);}
+
+  /* ---------- HERO ---------- */
+  .hero{
+    background: radial-gradient(120% 140% at 15% 0%, #24405A 0%, var(--night) 55%, var(--night-2) 100%);
+    color:var(--cream);
+    padding:72px 0 90px;
+    position:relative;
+    overflow:hidden;
+  }
+  .hero::after{
+    content:"";
+    position:absolute; right:-10%; top:20%;
+    width:420px; height:420px;
+    background:radial-gradient(circle, rgba(143,168,148,0.25) 0%, transparent 70%);
+    pointer-events:none;
+  }
+  .hero-grid{
+    display:grid; grid-template-columns:1.05fr 0.95fr; gap:56px; align-items:center;
+    position:relative; z-index:1;
+  }
+  .eyebrow{
+    display:inline-flex; align-items:center; gap:8px;
+    color:var(--sage); font-size:0.8rem; font-weight:600;
+    letter-spacing:0.08em; text-transform:uppercase;
+    margin-bottom:18px;
+  }
+  .eyebrow::before{content:"●"; font-size:0.6rem; color:var(--coral);}
+  .hero h1{
+    font-size:clamp(2.1rem, 4vw, 3.1rem);
+    line-height:1.08;
+    margin-bottom:20px;
+  }
+  .hero h1 em{font-style:italic; color:var(--sage);}
+  .hero p.lead{
+    font-size:1.08rem; color:rgba(250,248,244,0.78);
+    max-width:46ch; margin-bottom:32px;
+  }
+  .hero-actions{display:flex; gap:14px; flex-wrap:wrap; align-items:center;}
+  .btn-primary{
+    background:var(--coral); color:white; border:none;
+    padding:16px 30px; border-radius:999px; font-weight:700; font-size:1rem;
+    cursor:pointer; transition:transform 0.15s ease, background 0.15s ease;
+  }
+  .btn-primary:hover{background:var(--coral-deep); transform:translateY(-2px);}
+  .hero-note{font-size:0.85rem; color:rgba(250,248,244,0.6);}
+
+  .hero-visual{
+    background:var(--night-2);
+    border:1px solid var(--line);
+    border-radius:24px;
+    padding:36px;
+    text-align:center;
+  }
+  /* --- Signature interactive foam demo --- */
+  .foam-stage{
+    position:relative;
+    height:220px;
+    display:flex; align-items:center; justify-content:center;
+    margin-bottom:22px;
+  }
+  .pillow{
+    width:230px; height:150px;
+    background:linear-gradient(160deg, #F3F0E8, #E4DFD2);
+    border-radius:70px 70px 90px 90px / 90px 90px 60px 60px;
+    box-shadow:0 30px 60px -20px rgba(0,0,0,0.55), inset 0 -8px 20px rgba(0,0,0,0.08);
+    cursor:pointer;
+    transition:transform 0.12s ease;
+    position:relative;
+  }
+  .pillow::before{
+    content:"";
+    position:absolute; inset:18px 60px;
+    border-radius:60px;
+    background:rgba(143,168,148,0.35);
+  }
+  .pillow.pressed{
+    transform:scaleY(0.72) scaleX(1.05);
+    transition:transform 0.08s ease-out;
+  }
+  .pillow.recovering{
+    animation:recover 1.4s cubic-bezier(.22,1.4,.36,1) forwards;
+  }
+  @keyframes recover{
+    0%{transform:scaleY(0.72) scaleX(1.05);}
+    60%{transform:scaleY(1.04) scaleX(0.98);}
+    100%{transform:scaleY(1) scaleX(1);}
+  }
+  .foam-hint{color:var(--sage); font-size:0.85rem; font-weight:600;}
+  .foam-caption{color:rgba(250,248,244,0.55); font-size:0.82rem; margin-top:4px;}
+
+  @media (max-width:860px){
+    .hero-grid{grid-template-columns:1fr; gap:40px;}
+    .hero{padding:48px 0 60px;}
+  }
+
+  /* ---------- PROBLEM ---------- */
+  .problem{padding:80px 0; background:var(--cream);}
+  .problem-grid{display:grid; grid-template-columns:1fr 1fr; gap:60px; align-items:center;}
+  .section-title{font-size:clamp(1.6rem,3vw,2.2rem); margin-bottom:18px;}
+  .problem p{color:#4A5560; font-size:1.02rem; max-width:48ch;}
+  .problem ul{margin-top:22px; display:grid; gap:14px;}
+  .problem li{
+    display:flex; gap:12px; align-items:flex-start; color:#3A434C; font-size:0.98rem;
+  }
+  .check{
+    flex-shrink:0; width:22px; height:22px; border-radius:50%;
+    background:var(--sage); color:white; font-size:0.75rem;
+    display:flex; align-items:center; justify-content:center; margin-top:2px;
+  }
+  .stat-card{
+    background:var(--night); color:var(--cream);
+    border-radius:var(--radius); padding:38px;
+  }
+  .stat-card .num{font-family:'Fraunces',serif; font-size:3rem; color:var(--sage);}
+  .stat-card .label{font-size:0.95rem; color:rgba(250,248,244,0.7); margin-top:6px;}
+  .stat-card hr{border:none; border-top:1px solid var(--line); margin:26px 0;}
+
+  @media (max-width:860px){
+    .problem-grid{grid-template-columns:1fr;}
+  }
+
+  /* ---------- BENEFITS ---------- */
+  .benefits{padding:80px 0; background:var(--night); color:var(--cream);}
+  .benefits .section-title{color:var(--cream); text-align:center; margin-bottom:12px;}
+  .benefits .sub{text-align:center; color:rgba(250,248,244,0.65); max-width:52ch; margin:0 auto 48px;}
+  .benefit-grid{display:grid; grid-template-columns:repeat(3,1fr); gap:24px;}
+  .benefit-card{
+    background:var(--night-2); border:1px solid var(--line);
+    border-radius:var(--radius); padding:30px 26px;
+  }
+  .benefit-card .icon{font-size:1.6rem; margin-bottom:16px;}
+  .benefit-card h3{font-size:1.08rem; margin-bottom:8px; color:var(--cream);}
+  .benefit-card p{font-size:0.92rem; color:rgba(250,248,244,0.65);}
+  @media (max-width:860px){ .benefit-grid{grid-template-columns:1fr;} }
+
+  /* ---------- SOCIAL PROOF ---------- */
+  .proof{padding:64px 0; background:var(--cream); border-bottom:1px solid rgba(0,0,0,0.06);}
+  .proof-row{
+    display:flex; justify-content:space-between; gap:24px; flex-wrap:wrap;
+    text-align:center;
+  }
+  .proof-item .n{font-family:'Fraunces',serif; font-size:2rem; color:var(--sage-deep);}
+  .proof-item .t{font-size:0.85rem; color:#5A636B; margin-top:4px;}
+
+  /* ---------- ORDER FORM ---------- */
+  .order{padding:90px 0; background:linear-gradient(180deg, var(--cream), #F1ECE1);}
+  .order-box{
+    max-width:560px; margin:0 auto;
+    background:white; border-radius:24px;
+    box-shadow:0 24px 60px -24px rgba(20,32,43,0.25);
+    overflow:hidden;
+  }
+  .order-head{
+    background:var(--night); color:var(--cream);
+    padding:34px 34px 28px; text-align:center;
+  }
+  .order-head h2{font-size:1.5rem; margin-bottom:8px;}
+  .order-head p{color:rgba(250,248,244,0.7); font-size:0.92rem;}
+  .price-row{
+    display:flex; align-items:baseline; justify-content:center; gap:10px; margin-top:16px;
+  }
+  .price-now{font-family:'Fraunces',serif; font-size:2.1rem; color:var(--sage);}
+  .price-old{text-decoration:line-through; color:rgba(250,248,244,0.45); font-size:1rem;}
+  form{padding:32px 34px 36px; display:grid; gap:16px;}
+  label{font-size:0.82rem; font-weight:600; color:#3A434C; display:block; margin-bottom:6px;}
+  input, select{
+    width:100%; padding:13px 14px; border-radius:10px;
+    border:1.5px solid #DDD6C6; font-size:0.98rem; font-family:'Inter',sans-serif;
+    background:#FCFAF5;
+  }
+  input:focus, select:focus{border-color:var(--sage-deep); outline:none;}
+  .submit-btn{
+    background:var(--coral); color:white; border:none;
+    padding:16px; border-radius:12px; font-weight:700; font-size:1.02rem;
+    cursor:pointer; margin-top:6px; transition:background 0.15s ease;
+  }
+  .submit-btn:hover{background:var(--coral-deep);}
+  .form-note{font-size:0.8rem; color:#7A8189; text-align:center; margin-top:4px;}
+  .form-status{font-size:0.9rem; text-align:center; min-height:20px; font-weight:600;}
+  .form-status.ok{color:var(--sage-deep);}
+
+  /* ---------- FOOTER ---------- */
+  footer{padding:36px 0; background:var(--night); color:rgba(250,248,244,0.5); text-align:center; font-size:0.85rem;}
+
+  /* sticky mobile CTA */
+  .mobile-cta{
+    display:none;
+    position:fixed; bottom:0; left:0; right:0; z-index:60;
+    background:var(--night); padding:12px 16px; border-top:1px solid var(--line);
+  }
+  .mobile-cta button{
+    width:100%; background:var(--coral); color:white; border:none;
+    padding:14px; border-radius:999px; font-weight:700; font-size:1rem;
+  }
+  @media (max-width:640px){
+    .mobile-cta{display:block;}
+    body{padding-bottom:70px;}
+  }
+</style>
+</head>
+<body>
+
+<nav class="nav">
+  <div class="nav-inner">
+    <span class="brand">Cervi<em style="font-style:normal;color:var(--sage)">Rest</em></span>
+    <button class="nav-cta" onclick="document.getElementById('pedido').scrollIntoView()">Pedir ahora</button>
+  </div>
+</nav>
+
+<header class="hero">
+  <div class="wrap hero-grid">
+    <div>
+      <span class="eyebrow">Alivio cervical · Pago contra entrega</span>
+      <h1>Despierta sin dolor de cuello, <em>por primera vez en años</em>.</h1>
+      <p class="lead">La almohada ergonómica con espuma de memoria que se adapta a la curva natural de tu cuello y hombros — para que dejes de despertar más cansado de lo que te acostaste.</p>
+      <div class="hero-actions">
+        <button class="btn-primary" onclick="document.getElementById('pedido').scrollIntoView()">Quiero mi almohada</button>
+        <span class="hero-note">Pagas cuando la recibes, sin anticipos</span>
+      </div>
+    </div>
+    <div class="hero-visual">
+      <div class="foam-stage">
+        <div class="pillow" id="pillow"></div>
+      </div>
+      <p class="foam-hint" id="foamHint">Presiona la almohada ↑</p>
+      <p class="foam-caption">Así reacciona la espuma viscoelástica real</p>
+    </div>
+  </div>
+</header>
+
+<section class="problem">
+  <div class="wrap problem-grid">
+    <div>
+      <h2 class="section-title">Tu almohada actual no está diseñada para tu cuello</h2>
+      <p>Las almohadas normales son planas y genéricas — no sostienen la curva natural de tu columna cervical. Resultado: tensión, mala postura al dormir y ese dolor sordo que te sigue todo el día siguiente.</p>
+      <ul>
+        <li><span class="check">✓</span> Diseño tipo estrella que se ajusta a cuello, hombros y espalda alta</li>
+        <li><span class="check">✓</span> Espuma viscoelástica que recupera su forma, sin hundirse con el uso</li>
+        <li><span class="check">✓</span> Funda transpirable, fácil de lavar</li>
+        <li><span class="check">✓</span> Medidas 24" x 16" — se adapta a cualquier tamaño de cama</li>
+      </ul>
+    </div>
+    <div class="stat-card">
+      <div class="num">67%</div>
+      <div class="label">de los adultos reporta dolor cervical relacionado con mala postura al dormir</div>
+      <hr>
+      <div class="num">3–5</div>
+      <div class="label">noches suele tomar sentir la diferencia al cambiar de almohada</div>
+    </div>
+  </div>
+</section>
+
+<section class="benefits">
+  <div class="wrap">
+    <h2 class="section-title">Pensada para cada punto de tensión</h2>
+    <p class="sub">No es una almohada más — es soporte específico donde tu cuerpo más lo necesita.</p>
+    <div class="benefit-grid">
+      <div class="benefit-card">
+        <div class="icon">🌙</div>
+        <h3>Duerme de lado o boca arriba</h3>
+        <p>Su forma de estrella tiene zonas de soporte distintas según tu posición favorita para dormir.</p>
+      </div>
+      <div class="benefit-card">
+        <div class="icon">🧠</div>
+        <h3>Reduce la tensión muscular</h3>
+        <p>Al mantener alineada tu columna cervical, los músculos del cuello no tienen que compensar toda la noche.</p>
+      </div>
+      <div class="benefit-card">
+        <div class="icon">♻️</div>
+        <h3>No pierde su forma</h3>
+        <p>A diferencia del relleno tradicional, la espuma viscoelástica vuelve a su estado original noche tras noche.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="proof">
+  <div class="wrap proof-row">
+    <div class="proof-item"><div class="n">+1.200</div><div class="t">unidades entregadas</div></div>
+    <div class="proof-item"><div class="n">4.7/5</div><div class="t">satisfacción reportada</div></div>
+    <div class="proof-item"><div class="n">24–48h</div><div class="t">entrega en ciudades principales</div></div>
+    <div class="proof-item"><div class="n">100%</div><div class="t">pago contra entrega</div></div>
+  </div>
+</section>
+
+<section class="order" id="pedido">
+  <div class="wrap">
+    <div class="order-box">
+      <div class="order-head">
+        <h2>Pide la tuya hoy</h2>
+        <p>Confirmamos tu pedido por WhatsApp o llamada antes de despachar</p>
+        <div class="price-row">
+          <span class="price-now">$89.900</span>
+          <span class="price-old">$120.000</span>
+        </div>
+      </div>
+      <form id="orderForm">
+        <div>
+          <label for="nombre">Nombre completo</label>
+          <input type="text" id="nombre" name="nombre" required placeholder="Ej: María Rodríguez">
+        </div>
+        <div>
+          <label for="telefono">Número de celular</label>
+          <input type="tel" id="telefono" name="telefono" required placeholder="Ej: 300 123 4567">
+        </div>
+        <div>
+          <label for="ciudad">Ciudad y dirección de entrega</label>
+          <input type="text" id="ciudad" name="ciudad" required placeholder="Ej: Bogotá, Calle 45 #12-30">
+        </div>
+        <button type="submit" class="submit-btn">Confirmar pedido — pago contra entrega</button>
+        <p class="form-status" id="formStatus"></p>
+        <p class="form-note">No se realiza ningún cobro en este momento. Un asesor te llamará para confirmar.</p>
+      </form>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="wrap">
+    <p>CerviRest · Envíos a toda Colombia · Pago contra entrega</p>
+  </div>
+</footer>
+
+<div class="mobile-cta">
+  <button onclick="document.getElementById('pedido').scrollIntoView()">Pedir ahora — $89.900</button>
+</div>
+
+<script>
+  // --- Signature foam interaction ---
+  const pillow = document.getElementById('pillow');
+  const hint = document.getElementById('foamHint');
+  let pressed = false;
+
+  function press(){
+    if(pressed) return;
+    pressed = true;
+    pillow.classList.remove('recovering');
+    pillow.classList.add('pressed');
+    hint.textContent = 'Suelta y mira cómo recupera su forma...';
+  }
+  function release(){
+    if(!pressed) return;
+    pressed = false;
+    pillow.classList.remove('pressed');
+    pillow.classList.add('recovering');
+    hint.textContent = 'Presiona la almohada ↑';
+    setTimeout(()=> pillow.classList.remove('recovering'), 1400);
+  }
+  pillow.addEventListener('mousedown', press);
+  pillow.addEventListener('touchstart', (e)=>{ e.preventDefault(); press(); }, {passive:false});
+  window.addEventListener('mouseup', release);
+  window.addEventListener('touchend', release);
+
+  // --- Order form ---
+  const form = document.getElementById('orderForm');
+  const status = document.getElementById('formStatus');
+  const submitBtn = form.querySelector('.submit-btn');
+
+  // 👇 PEGA AQUÍ TU URL DE GOOGLE APPS SCRIPT (Paso 3 del tutorial)
+  // Ejemplo: 'https://script.google.com/macros/s/AKfycbXXXXXXXXXXXX/exec'
+  const SHEET_URL = 'https://script.google.com/macros/s/AKfycbwz7_Js0-YUSLf27siL6bYIMmUT53fkhCRB_fpoICbIVkaX163SQeONfhHybVQb0L2p5A/exec';
+
+  form.addEventListener('submit', function(e){
+    e.preventDefault();
+    const nombre = document.getElementById('nombre').value.trim();
+    const telefono = document.getElementById('telefono').value.trim();
+    const ciudad = document.getElementById('ciudad').value.trim();
+
+    if (SHEET_URL.includes('PEGA_TU_URL')) {
+      status.textContent = 'Falta configurar SHEET_URL en el código (ver tutorial).';
+      status.style.color = '#CF5D3F';
+      return;
+    }
+
+    submitBtn.disabled = true;
+    submitBtn.textContent = 'Enviando...';
+    status.textContent = '';
+
+    fetch(SHEET_URL, {
+      method: 'POST',
+      body: JSON.stringify({
+        nombre: nombre,
+        telefono: telefono,
+        ciudad: ciudad,
+        producto: 'Almohada Cervical Ergonómica',
+        precio: 89900
+      })
+    })
+    .then(() => {
+      status.textContent = '¡Pedido recibido! Te contactaremos pronto por WhatsApp.';
+      status.classList.add('ok');
+      form.reset();
+    })
+    .catch(() => {
+      status.textContent = 'Hubo un error. Intenta de nuevo o escríbenos por WhatsApp.';
+      status.style.color = '#CF5D3F';
+    })
+    .finally(() => {
+      submitBtn.disabled = false;
+      submitBtn.textContent = 'Confirmar pedido — pago contra entrega';
+    });
+  });
+</script>
+
+</body>
+</html>
