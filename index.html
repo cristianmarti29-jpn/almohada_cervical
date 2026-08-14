@@ -203,6 +203,8 @@
   }
   .proof-item .n{font-family:'Fraunces',serif; font-size:2rem; color:var(--sage-deep);}
   .proof-item .t{font-size:0.85rem; color:#5A636B; margin-top:4px;}
+  .gallery-grid{display:grid; grid-template-columns:1fr 1fr; gap:24px;}
+  @media (max-width:640px){ .gallery-grid{grid-template-columns:1fr;} }
 
   /* ---------- ORDER FORM ---------- */
   .order{padding:90px 0; background:linear-gradient(180deg, var(--cream), #F1ECE1);}
@@ -274,18 +276,14 @@
     <div>
       <span class="eyebrow">Alivio cervical · Pago contra entrega</span>
       <h1>Despierta sin dolor de cuello, <em>por primera vez en años</em>.</h1>
-      <p class="lead">La almohada ergonómica con espuma de memoria que se adapta a la curva natural de tu cuello y hombros — para que dejes de despertar más cansado de lo que te acostaste.</p>
+      <p class="lead">La almohada ortopédica de diseño contorneado que mantiene tu cuello alineado toda la noche — con funda transpirable y soporte real donde más lo necesitas.</p>
       <div class="hero-actions">
         <button class="btn-primary" onclick="document.getElementById('pedido').scrollIntoView()">Quiero mi almohada</button>
         <span class="hero-note">Pagas cuando la recibes, sin anticipos</span>
       </div>
     </div>
-    <div class="hero-visual">
-      <div class="foam-stage">
-        <div class="pillow" id="pillow"></div>
-      </div>
-      <p class="foam-hint" id="foamHint">Presiona la almohada ↑</p>
-      <p class="foam-caption">Así reacciona la espuma viscoelástica real</p>
+    <div class="hero-visual" style="padding:16px;">
+      <img src="assets/imagen2.png" alt="Mujer durmiendo cómodamente sobre la Almohada Ortopédica" style="border-radius:16px; width:100%; display:block;">
     </div>
   </div>
 </header>
@@ -296,10 +294,10 @@
       <h2 class="section-title">Tu almohada actual no está diseñada para tu cuello</h2>
       <p>Las almohadas normales son planas y genéricas — no sostienen la curva natural de tu columna cervical. Resultado: tensión, mala postura al dormir y ese dolor sordo que te sigue todo el día siguiente.</p>
       <ul>
-        <li><span class="check">✓</span> Diseño tipo estrella que se ajusta a cuello, hombros y espalda alta</li>
-        <li><span class="check">✓</span> Espuma viscoelástica que recupera su forma, sin hundirse con el uso</li>
-        <li><span class="check">✓</span> Funda transpirable, fácil de lavar</li>
-        <li><span class="check">✓</span> Medidas 24" x 16" — se adapta a cualquier tamaño de cama</li>
+        <li><span class="check">✓</span> Diseño contorneado que se adapta a la curva natural de tu cuello</li>
+        <li><span class="check">✓</span> Zona central hundida para alinear la columna cervical</li>
+        <li><span class="check">✓</span> Funda transpirable, suave y fresca al tacto</li>
+        <li><span class="check">✓</span> Ideal para dormir de lado o boca arriba</li>
       </ul>
     </div>
     <div class="stat-card">
@@ -320,7 +318,7 @@
       <div class="benefit-card">
         <div class="icon">🌙</div>
         <h3>Duerme de lado o boca arriba</h3>
-        <p>Su forma de estrella tiene zonas de soporte distintas según tu posición favorita para dormir.</p>
+        <p>Su diseño contorneado se adapta a distintas posiciones para dormir, sosteniendo el cuello sin forzarlo.</p>
       </div>
       <div class="benefit-card">
         <div class="icon">🧠</div>
@@ -342,6 +340,15 @@
     <div class="proof-item"><div class="n">4.7/5</div><div class="t">satisfacción reportada</div></div>
     <div class="proof-item"><div class="n">24–48h</div><div class="t">entrega en ciudades principales</div></div>
     <div class="proof-item"><div class="n">100%</div><div class="t">pago contra entrega</div></div>
+  </div>
+</section>
+
+<section class="proof" style="padding-top:0;">
+  <div class="wrap">
+    <div class="gallery-grid">
+      <img src="assets/imagen3.png" alt="Almohada Ortopédica, soporte cervical y transpirable" style="border-radius:16px; width:100%;">
+      <img src="assets/imagen1.png" alt="Vista de la Almohada Ortopédica" style="border-radius:16px; width:100%;">
+    </div>
   </div>
 </section>
 
@@ -388,31 +395,6 @@
 </div>
 
 <script>
-  // --- Signature foam interaction ---
-  const pillow = document.getElementById('pillow');
-  const hint = document.getElementById('foamHint');
-  let pressed = false;
-
-  function press(){
-    if(pressed) return;
-    pressed = true;
-    pillow.classList.remove('recovering');
-    pillow.classList.add('pressed');
-    hint.textContent = 'Suelta y mira cómo recupera su forma...';
-  }
-  function release(){
-    if(!pressed) return;
-    pressed = false;
-    pillow.classList.remove('pressed');
-    pillow.classList.add('recovering');
-    hint.textContent = 'Presiona la almohada ↑';
-    setTimeout(()=> pillow.classList.remove('recovering'), 1400);
-  }
-  pillow.addEventListener('mousedown', press);
-  pillow.addEventListener('touchstart', (e)=>{ e.preventDefault(); press(); }, {passive:false});
-  window.addEventListener('mouseup', release);
-  window.addEventListener('touchend', release);
-
   // --- Order form ---
   const form = document.getElementById('orderForm');
   const status = document.getElementById('formStatus');
